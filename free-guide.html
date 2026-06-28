@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free First-Time Buyer's Starter Guide — H.OM.E</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#26215C; --mid:#534AB7; --light:#EEEDFE; --teal:#1D9E75;
+    --amber:#BA7517; --red:#A32D2D; --slate:#5F5E5A; --off:#F9F8F6; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--slate);background:var(--off);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{color:var(--deep);line-height:1.18;font-weight:600}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;background:var(--deep);color:var(--light);padding:14px 24px;border-radius:6px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:.2s}
+  .btn:hover{background:var(--mid)}
+  .btn-white{background:var(--white);color:var(--deep)}
+  .pill{display:inline-block;background:var(--light);color:var(--deep);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600}
+  .ph{border-bottom:1.5px dotted var(--amber);cursor:help}
+  .badge-free{display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:.5px}
+
+  .demo{background:#2b2640;color:#cfc9ee;font-size:12px;text-align:center;padding:7px 16px;letter-spacing:.2px}
+  .demo b{color:#fff}
+
+  nav{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid #ECECEC}
+  .navrow{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;font-size:20px;color:var(--deep);letter-spacing:.5px}
+  .logo span{color:var(--mid)}
+  .navlinks{display:flex;gap:26px;align-items:center}
+  .navlinks a{font-size:14px;font-weight:500;color:var(--deep)}
+  .navlinks a:hover{color:var(--mid)}
+  .navlinks a.active{color:var(--mid)}
+  .navright{display:flex;align-items:center;gap:16px}
+  .cart{position:relative;font-size:20px}
+  .cart b{position:absolute;top:-8px;right:-10px;background:var(--teal);color:#fff;font-size:10px;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .burger{display:none;font-size:24px;background:none;border:none;color:var(--deep);cursor:pointer}
+  .mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 20px 20px;background:var(--white);border-bottom:1px solid #ECECEC}
+  .mobile-menu a{padding:12px 0;font-weight:500;color:var(--deep);border-bottom:1px solid #F0F0F0}
+
+  .hero{background:var(--off);padding:60px 0}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:40px;margin:14px 0}
+  .hero .sub{font-size:17px;max-width:520px;margin-bottom:20px}
+  .ticks{list-style:none;margin:20px 0 0}
+  .ticks li{padding:8px 0 8px 30px;position:relative;font-size:15px}
+  .ticks li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+
+  .cover-art{height:420px;border-radius:14px;background:
+     linear-gradient(135deg,rgba(38,33,92,.9),rgba(83,74,183,.78));
+     display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;padding:30px;text-align:center;box-shadow:0 18px 40px rgba(38,33,92,.28)}
+  .cover-art .bk{font-size:80px;margin-bottom:16px}
+  .cover-art .t{font-family:'Playfair Display',serif;font-size:24px;color:#fff;line-height:1.25;margin-bottom:8px}
+  .cover-art .s{font-size:13px;opacity:.85}
+  .cover-art .free{margin-top:18px;background:var(--teal);font-size:12px;font-weight:700;padding:5px 14px;border-radius:6px}
+
+  .form-wrap{background:var(--white)}
+  .form-wrap .wrap{padding:64px 20px}
+  .form-card{background:var(--white);border:1.5px solid var(--deep);border-radius:14px;padding:36px;max-width:560px;margin:0 auto;text-align:center}
+  .form-card h2{font-size:26px;margin-bottom:8px}
+  .form-card p{font-size:15px;margin-bottom:22px}
+  .form-card input{width:100%;padding:14px 15px;border:1px solid #DDD;border-radius:8px;margin-bottom:13px;font-size:15px;font-family:inherit}
+  .form-card input:focus{outline:none;border-color:var(--mid)}
+  .form-card .btn{width:100%;padding:15px}
+  .fineprint{font-size:11px;color:var(--slate);margin-top:14px;line-height:1.5}
+  .err{display:none;color:var(--red);font-size:13px;font-weight:600;margin-bottom:10px}
+
+  .success{display:none;background:#E7F6EF;border:1.5px solid var(--teal);border-radius:14px;padding:36px;max-width:560px;margin:0 auto;text-align:center}
+  .success .ic{font-size:46px;margin-bottom:10px}
+  .success h2{color:#127a58;margin-bottom:8px}
+  .success p{font-size:15px}
+
+  .trust{background:var(--light);padding:18px 0}
+  .trust-row{display:flex;justify-content:center;gap:34px;flex-wrap:wrap}
+  .trust-item{font-size:13px;font-weight:600;color:var(--deep);display:flex;align-items:center;gap:7px}
+
+  .steps{padding:64px 0}
+  .center{text-align:center}
+  .sechead{font-size:30px;margin-bottom:10px}
+  .secsub{font-size:16px;max-width:600px;margin:0 auto 40px}
+  .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .step{background:var(--white);border-radius:12px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,.05);text-align:center}
+  .step .num{width:42px;height:42px;border-radius:50%;background:var(--deep);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .step h3{font-size:17px;margin-bottom:8px}
+  .step p{font-size:14px}
+
+  .faq{background:var(--white);padding:64px 0}
+  .faq-list{max-width:760px;margin:0 auto}
+  .faq-item{border:1px solid #ECECEC;border-radius:10px;margin-bottom:12px;overflow:hidden;background:var(--off)}
+  .faq-q{padding:18px 20px;font-weight:600;color:var(--deep);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px;list-style:none}
+  .faq-q::-webkit-details-marker{display:none}
+  .faq-q .mk{color:var(--mid);font-size:20px;transition:.2s}
+  details[open] .faq-q .mk{transform:rotate(45deg)}
+  .faq-a{padding:0 20px 18px;font-size:14px}
+
+  footer{background:var(--deep);color:var(--light);padding:56px 0 28px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+  footer h4{color:#fff;font-size:14px;margin-bottom:14px;font-weight:600}
+  footer ul{list-style:none}
+  footer li{margin-bottom:9px}
+  footer a{font-size:13px;color:var(--light);opacity:.85}
+  footer a:hover{opacity:1;color:#fff}
+  .foot-logo{font-weight:700;font-size:20px;color:#fff;margin-bottom:10px}
+  .foot-logo span{color:#A99FF0}
+  .socials{display:flex;gap:12px;margin-top:14px;font-size:18px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;opacity:.7}
+
+  @media(max-width:900px){
+    .navlinks{display:none}
+    .burger{display:block}
+    .hero-grid{grid-template-columns:1fr}
+    .hero h1{font-size:30px}
+    .cover-art{height:300px;order:-1}
+    .step-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:520px){
+    .foot-grid{grid-template-columns:1fr}
+    .trust-row{justify-content:flex-start;gap:16px}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo">⚠️ <b>DEMO PROTOTYPE</b> — figures with a dotted underline are <b>placeholders</b>. Replace with verified numbers before going live.</div>
+
+<nav>
+  <div class="wrap navrow">
+    <a href="index.html" class="logo">H.<span>OM</span>.E</a>
+    <div class="navlinks">
+      <a href="shop.html">Shop</a>
+      <a href="free-guide.html" class="active">Free Resources</a>
+      <a href="index.html#events">Events</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <div class="navright">
+      <a href="#" class="cart">🛒<b>0</b></a>
+      <a href="#get" class="btn" style="padding:10px 18px">Get Free Guide</a>
+      <button class="burger" onclick="document.getElementById('mm').style.display = document.getElementById('mm').style.display==='flex'?'none':'flex'">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <a href="shop.html">Shop</a>
+    <a href="free-guide.html">Free Resources</a>
+    <a href="index.html#events">Events</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#about">About</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge-free">FREE · 20-PAGE PDF</span>
+      <h1>The First-Time Buyer's Starter Guide</h1>
+      <p class="sub">The complete UK home-buying process in plain English — from deposit planning to picking up your keys. Written by people who do this every day, updated for 2025.</p>
+      <ul class="ticks">
+        <li>The real deposit you need (it may be less than you think)</li>
+        <li>UK government schemes compared — LISA, Shared Ownership & more</li>
+        <li>The complete buying timeline — offer to completion</li>
+        <li>The 5 most common first-time buyer mistakes — and how to avoid them</li>
+        <li>A budget worksheet to calculate your total buying costs</li>
+      </ul>
+    </div>
+    <div class="cover-art">
+      <div class="bk">📘</div>
+      <div class="t">The First-Time Buyer's<br>Starter Guide</div>
+      <div class="s">UK Edition · 2025</div>
+      <div class="free">FREE DOWNLOAD</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-row">
+    <div class="trust-item">⭐ Rated <span class="ph" title="Placeholder">4.9/5</span> by buyers</div>
+    <div class="trust-item">📥 Downloaded <span class="ph" title="Placeholder">12,000+</span> times</div>
+    <div class="trust-item">🇬🇧 100% UK-specific</div>
+    <div class="trust-item">🔒 No spam, ever</div>
+  </div>
+</div>
+
+<section class="form-wrap" id="get">
+  <div class="wrap">
+    <form class="form-card" id="guideForm" novalidate>
+      <span class="badge-free">FREE</span>
+      <h2 style="margin-top:14px">Send me the free guide</h2>
+      <p>Enter your details and we'll email the PDF straight to your inbox.</p>
+      <div class="err" id="err">Please enter your first name and a valid email address.</div>
+      <input type="text" id="fname" placeholder="First name" autocomplete="given-name" />
+      <input type="email" id="email" placeholder="Email address" autocomplete="email" />
+      <button type="submit" class="btn">Download Free Guide →</button>
+      <p class="fineprint">No spam. Your information is handled in line with our Privacy Policy. Unsubscribe anytime. By submitting you agree to receive the guide and occasional first-time buyer resources by email.</p>
+    </form>
+
+    <div class="success" id="success">
+      <div class="ic">✅</div>
+      <h2>Check your inbox!</h2>
+      <p>Your free guide is on its way to <b id="sentTo">your email</b>. If it doesn't arrive in a few minutes, check your spam folder.</p>
+      <p style="margin-top:16px"><a href="shop.html" class="btn">Explore the Shop →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2 class="sechead center">How it works</h2>
+    <p class="secsub center">From sign-up to reading your guide in under two minutes.</p>
+    <div class="step-grid">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Enter your details</h3>
+        <p>Just your first name and email — nothing else needed.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Check your inbox</h3>
+        <p>We email your 20-page PDF guide instantly. No waiting.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Start your journey</h3>
+        <p>Read at your own pace and take the first confident step.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2 class="sechead center">Frequently asked</h2>
+    <p class="secsub center">Everything you might be wondering before you download.</p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Is the guide really free?<span class="mk">+</span></summary>
+        <div class="faq-a">Yes — completely free, no payment details required. It's our way of helping you take the first step.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is it specific to the UK?<span class="mk">+</span></summary>
+        <div class="faq-a">100%. Every figure, scheme and step is written for the UK market and updated for 2025, including LISA, Shared Ownership and First Homes.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Will you spam me?<span class="mk">+</span></summary>
+        <div class="faq-a">No. We send the guide plus the occasional genuinely useful resource. You can unsubscribe in one click at any time.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is this financial advice?<span class="mk">+</span></summary>
+        <div class="faq-a">No. The guide is for general information only and does not constitute financial, legal or mortgage advice. Always speak to a qualified adviser for your personal situation.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">H.<span>OM</span>.E</div>
+        <p style="font-size:13px;opacity:.85">Your expert guide to first-time homeownership.</p>
+        <div class="socials">📷 🎵 📘 💼 ▶️ 📌</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul><li><a href="shop.html">All Products</a></li><li><a href="shop.html">Guides</a></li><li><a href="shop.html">Spreadsheets</a></li><li><a href="shop.html">Bundles</a></li><li><a href="shop.html">Webinars</a></li></ul>
+      </div>
+      <div>
+        <h4>H.OM.E</h4>
+        <ul><li><a href="index.html#about">About Us</a></li><li><a href="#">The Advisory Programme</a></li><li><a href="#">Affiliate Programme</a></li><li><a href="index.html#blog">Blog</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="#">FAQs</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Refund Policy</a></li><li><a href="#">Privacy Policy</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2025 H.OM.E — Home Ownership Made Easy. [Registered Company Name]. Company No. [Number].</div>
+      <div>Content is for general information only and does not constitute financial, legal or mortgage advice.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var form = document.getElementById('guideForm');
+  var success = document.getElementById('success');
+  var err = document.getElementById('err');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fname = document.getElementById('fname').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!fname || !emailOk){
+      err.style.display = 'block';
+      return;
+    }
+    err.style.display = 'none';
+    document.getElementById('sentTo').textContent = email;
+    form.style.display = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+    // NOTE: demo only — no data is sent anywhere. Wire to an email/CRM service before going live.
+  });
+</script>
+
+</body>
+</html>
