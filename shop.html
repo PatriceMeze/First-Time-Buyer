@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — H.OM.E | Home Ownership Made Easy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#26215C; --mid:#534AB7; --light:#EEEDFE; --teal:#1D9E75;
+    --amber:#BA7517; --red:#A32D2D; --slate:#5F5E5A; --off:#F9F8F6; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--slate);background:var(--off);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{color:var(--deep);line-height:1.15;font-weight:600}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;background:var(--deep);color:var(--light);padding:14px 24px;border-radius:6px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:.2s}
+  .btn:hover{background:var(--mid)}
+  .btn-white{background:var(--white);color:var(--deep)}
+  .pill{display:inline-block;background:var(--light);color:var(--deep);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600}
+  .ph{border-bottom:1.5px dotted var(--amber);cursor:help}
+
+  .demo{background:#2b2640;color:#cfc9ee;font-size:12px;text-align:center;padding:7px 16px;letter-spacing:.2px}
+  .demo b{color:#fff}
+
+  nav{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid #ECECEC}
+  .navrow{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;font-size:20px;color:var(--deep);letter-spacing:.5px}
+  .logo span{color:var(--mid)}
+  .navlinks{display:flex;gap:26px;align-items:center}
+  .navlinks a{font-size:14px;font-weight:500;color:var(--deep)}
+  .navlinks a:hover{color:var(--mid)}
+  .navlinks a.active{color:var(--mid)}
+  .navright{display:flex;align-items:center;gap:16px}
+  .cart{position:relative;font-size:20px}
+  .cart b{position:absolute;top:-8px;right:-10px;background:var(--teal);color:#fff;font-size:10px;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .burger{display:none;font-size:24px;background:none;border:none;color:var(--deep);cursor:pointer}
+  .mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 20px 20px;background:var(--white);border-bottom:1px solid #ECECEC}
+  .mobile-menu a{padding:12px 0;font-weight:500;color:var(--deep);border-bottom:1px solid #F0F0F0}
+
+  .shop-hero{background:var(--deep);color:var(--light);padding:54px 0}
+  .shop-hero h1{color:#fff;font-size:38px;margin-bottom:12px}
+  .shop-hero p{max-width:600px;font-size:17px;opacity:.92}
+  .crumb{font-size:13px;opacity:.8;margin-bottom:16px}
+  .crumb a{color:var(--light)}
+  .crumb a:hover{color:#fff}
+
+  .shop-body{padding:48px 0 74px}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+  .filters{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{background:var(--white);border:1.5px solid #E2E0F0;color:var(--deep);padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:var(--mid)}
+  .chip.active{background:var(--deep);color:var(--white);border-color:var(--deep)}
+  .sortbox{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--slate)}
+  .sortbox select{padding:8px 12px;border:1.5px solid #E2E0F0;border-radius:7px;font-family:inherit;font-size:13px;font-weight:600;color:var(--deep);background:var(--white);cursor:pointer}
+  .count{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .count b{color:var(--deep)}
+
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .prod{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:.2s;display:flex;flex-direction:column}
+  .prod:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(38,33,92,.12)}
+  .prod .cover{height:150px;background:var(--light);position:relative;display:flex;align-items:center;justify-content:center;font-size:34px}
+  .prod .bs{position:absolute;top:10px;left:10px;background:var(--teal);color:#fff;font-size:10px;font-weight:700;padding:4px 9px;border-radius:5px;letter-spacing:.4px}
+  .prod .bs.amber{background:var(--amber)}
+  .prod .body{padding:16px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .prod .ptag{font-size:10px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.5px}
+  .prod h3{font-size:15px}
+  .prod .desc{font-size:13px;flex:1}
+  .prod .rate{font-size:12px;color:var(--amber)}
+  .prod .rate span{color:var(--slate)}
+  .prod .price{font-size:19px;font-weight:700;color:var(--deep)}
+  .prod .price s{font-size:13px;font-weight:500;color:var(--slate);margin-left:6px}
+  .prod .btn{padding:11px;font-size:13px;text-align:center}
+
+  .empty{display:none;text-align:center;padding:60px 0;color:var(--slate)}
+  .empty h3{margin-bottom:8px}
+
+  .helpbar{background:var(--light);text-align:center}
+  .helpbar .wrap{padding:48px 20px}
+  .helpbar h2{font-size:26px;margin-bottom:8px}
+  .helpbar p{max-width:520px;margin:0 auto 20px}
+
+  footer{background:var(--deep);color:var(--light);padding:56px 0 28px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+  footer h4{color:#fff;font-size:14px;margin-bottom:14px;font-weight:600}
+  footer ul{list-style:none}
+  footer li{margin-bottom:9px}
+  footer a{font-size:13px;color:var(--light);opacity:.85}
+  footer a:hover{opacity:1;color:#fff}
+  .foot-logo{font-weight:700;font-size:20px;color:#fff;margin-bottom:10px}
+  .foot-logo span{color:#A99FF0}
+  .socials{display:flex;gap:12px;margin-top:14px;font-size:18px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;opacity:.7}
+
+  @media(max-width:900px){
+    .navlinks{display:none}
+    .burger{display:block}
+    .prod-grid{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .shop-hero h1{font-size:30px}
+  }
+  @media(max-width:520px){
+    .prod-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo">⚠️ <b>DEMO PROTOTYPE</b> — figures with a dotted underline are <b>placeholders</b>. Replace with verified numbers before going live.</div>
+
+<nav>
+  <div class="wrap navrow">
+    <a href="index.html" class="logo">H.<span>OM</span>.E</a>
+    <div class="navlinks">
+      <a href="shop.html" class="active">Shop</a>
+      <a href="free-guide.html">Free Resources</a>
+      <a href="index.html#events">Events</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <div class="navright">
+      <a href="#" class="cart">🛒<b>0</b></a>
+      <a href="free-guide.html" class="btn" style="padding:10px 18px">Get Free Guide</a>
+      <button class="burger" onclick="document.getElementById('mm').style.display = document.getElementById('mm').style.display==='flex'?'none':'flex'">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <a href="shop.html">Shop</a>
+    <a href="free-guide.html">Free Resources</a>
+    <a href="index.html#events">Events</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#about">About</a>
+  </div>
+</nav>
+
+<section class="shop-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> / Shop</div>
+    <h1>The Shop</h1>
+    <p>Guides, checklists, spreadsheet tools, courses, webinars and bundles — everything written for UK first-time buyers, in plain English.</p>
+  </div>
+</section>
+
+<div class="shop-body">
+  <div class="wrap">
+    <div class="toolbar">
+      <div class="filters" id="filters">
+        <button class="chip active" data-cat="all">All</button>
+        <button class="chip" data-cat="guide">Guides</button>
+        <button class="chip" data-cat="checklist">Checklists</button>
+        <button class="chip" data-cat="spreadsheet">Spreadsheets</button>
+        <button class="chip" data-cat="bundle">Bundles</button>
+        <button class="chip" data-cat="course">Courses</button>
+        <button class="chip" data-cat="webinar">Webinars</button>
+        <button class="chip" data-cat="seminar">Seminars</button>
+      </div>
+      <div class="sortbox">
+        <label for="sort">Sort</label>
+        <select id="sort">
+          <option value="featured">Featured</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="count"><b id="shown">12</b> of <b>12</b> products</div>
+
+    <div class="prod-grid" id="grid">
+      <div class="prod" data-cat="guide" data-price="19">
+        <div class="cover">📖<span class="bs">BEST SELLER</span></div>
+        <div class="body">
+          <div class="ptag">Guide</div>
+          <h3>The Complete First-Time Buyer's Handbook</h3>
+          <p class="desc">60 pages — the entire UK buying process, start to finish.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(128)</span></div>
+          <div class="price">£19</div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="spreadsheet" data-price="47">
+        <div class="cover">📊<span class="bs">BEST SELLER</span></div>
+        <div class="body">
+          <div class="ptag">Spreadsheet</div>
+          <h3>The First-Time Buyer Financial Planner</h3>
+          <p class="desc">Buying power, stamp duty & full costs in 10 minutes.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(94)</span></div>
+          <div class="price">£47</div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="bundle" data-price="147">
+        <div class="cover">📦<span class="bs amber">SAVE 40%</span></div>
+        <div class="body">
+          <div class="ptag">Bundle</div>
+          <h3>The Complete Toolkit Bundle</h3>
+          <p class="desc">Every guide, checklist & spreadsheet — save 40%.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(61)</span></div>
+          <div class="price">£147 <s>£245</s></div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="webinar" data-price="47">
+        <div class="cover">💻</div>
+        <div class="body">
+          <div class="ptag">Webinar</div>
+          <h3>How to Buy Your First Home in 2025</h3>
+          <p class="desc">90-minute live session + 30-day replay.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(45)</span></div>
+          <div class="price">£47</div>
+          <a href="product.html" class="btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="checklist" data-price="7">
+        <div class="cover">✅</div>
+        <div class="body">
+          <div class="ptag">Checklist</div>
+          <h3>The Viewing & Offer Checklist Pack</h3>
+          <p class="desc">Printable checklists for viewings, surveys and offers.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(73)</span></div>
+          <div class="price">£7</div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="guide" data-price="12">
+        <div class="cover">📖</div>
+        <div class="body">
+          <div class="ptag">Guide</div>
+          <h3>UK Government Schemes Explained</h3>
+          <p class="desc">LISA, Shared Ownership & First Homes — compared.</p>
+          <div class="rate">★★★★☆ <span class="ph" title="Placeholder">(52)</span></div>
+          <div class="price">£12</div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="spreadsheet" data-price="27">
+        <div class="cover">📊</div>
+        <div class="body">
+          <div class="ptag">Spreadsheet</div>
+          <h3>Deposit & Savings Tracker</h3>
+          <p class="desc">Set a target, track progress and hit your deposit goal.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(38)</span></div>
+          <div class="price">£27</div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="course" data-price="97">
+        <div class="cover">🎓</div>
+        <div class="body">
+          <div class="ptag">Course</div>
+          <h3>First-Time Buyer Masterclass (Online)</h3>
+          <p class="desc">Self-paced video course — 12 modules, lifetime access.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(29)</span></div>
+          <div class="price">£97</div>
+          <a href="product.html" class="btn">Enrol Now</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="webinar" data-price="67">
+        <div class="cover">💻</div>
+        <div class="body">
+          <div class="ptag">Webinar</div>
+          <h3>Property Negotiation Masterclass</h3>
+          <p class="desc">Live tactics to negotiate price and protect your offer.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(31)</span></div>
+          <div class="price">£67</div>
+          <a href="product.html" class="btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="seminar" data-price="197">
+        <div class="cover">🏢</div>
+        <div class="body">
+          <div class="ptag">Seminar</div>
+          <h3>Full-Day First-Time Buyer Seminar</h3>
+          <p class="desc">In-person, full-day event with Q&A and resources.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(18)</span></div>
+          <div class="price">£197</div>
+          <a href="product.html" class="btn">Book Your Place</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="checklist" data-price="9">
+        <div class="cover">✅</div>
+        <div class="body">
+          <div class="ptag">Checklist</div>
+          <h3>The Completion Day Checklist</h3>
+          <p class="desc">Everything to do from offer accepted to keys in hand.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(41)</span></div>
+          <div class="price">£9</div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="prod" data-cat="bundle" data-price="49">
+        <div class="cover">📦<span class="bs amber">SAVE 30%</span></div>
+        <div class="body">
+          <div class="ptag">Bundle</div>
+          <h3>The Starter Bundle</h3>
+          <p class="desc">Handbook, deposit tracker & checklists to get going.</p>
+          <div class="rate">★★★★★ <span class="ph" title="Placeholder">(34)</span></div>
+          <div class="price">£49 <s>£70</s></div>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty" id="empty">
+      <h3>No products in this category yet</h3>
+      <p>Try another category, or <a href="free-guide.html" style="color:var(--mid);font-weight:600">start with our free guide →</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="helpbar">
+  <div class="wrap">
+    <h2>Not sure where to start?</h2>
+    <p>Download our free 20-page Starter Guide — the complete UK home-buying process in plain English. No payment required.</p>
+    <a href="free-guide.html" class="btn">Get the Free Guide →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">H.<span>OM</span>.E</div>
+        <p style="font-size:13px;opacity:.85">Your expert guide to first-time homeownership.</p>
+        <div class="socials">📷 🎵 📘 💼 ▶️ 📌</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul><li><a href="shop.html">All Products</a></li><li><a href="shop.html">Guides</a></li><li><a href="shop.html">Spreadsheets</a></li><li><a href="shop.html">Bundles</a></li><li><a href="shop.html">Webinars</a></li></ul>
+      </div>
+      <div>
+        <h4>H.OM.E</h4>
+        <ul><li><a href="index.html#about">About Us</a></li><li><a href="#">The Advisory Programme</a></li><li><a href="#">Affiliate Programme</a></li><li><a href="index.html#blog">Blog</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="#">FAQs</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Refund Policy</a></li><li><a href="#">Privacy Policy</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2025 H.OM.E — Home Ownership Made Easy. [Registered Company Name]. Company No. [Number].</div>
+      <div>Content is for general information only and does not constitute financial, legal or mortgage advice.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var grid = document.getElementById('grid');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.prod'));
+  var chips = document.querySelectorAll('.chip');
+  var sort = document.getElementById('sort');
+  var shown = document.getElementById('shown');
+  var empty = document.getElementById('empty');
+  var current = 'all';
+
+  function apply(){
+    // filter
+    var visible = 0;
+    cards.forEach(function(c){
+      var match = current === 'all' || c.dataset.cat === current;
+      c.style.display = match ? 'flex' : 'none';
+      if(match) visible++;
+    });
+    shown.textContent = visible;
+    empty.style.display = visible ? 'none' : 'block';
+
+    // sort (only visible ordering within the grid)
+    var order = sort.value;
+    if(order !== 'featured'){
+      var sorted = cards.slice().sort(function(a,b){
+        var pa = parseFloat(a.dataset.price), pb = parseFloat(b.dataset.price);
+        return order === 'low' ? pa - pb : pb - pa;
+      });
+      sorted.forEach(function(c){ grid.appendChild(c); });
+    }
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      current = chip.dataset.cat;
+      apply();
+    });
+  });
+  sort.addEventListener('change', apply);
+</script>
+
+</body>
+</html>
